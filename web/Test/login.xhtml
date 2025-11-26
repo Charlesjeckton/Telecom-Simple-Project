@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head> <title>Login</title> <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/primeflex@3.3.1/primeflex.min.css" /> <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/primeicons@5.0.0/primeicons.css" /> <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/primefaces@13.0.0/resources/themes/lara-light-indigo/theme.css" /> <style>
+body {
+background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;
+margin: 0;
+}
+.login-panel {
+background: #ffffff;
+padding: 40px 30px;
+border-radius: 12px;
+width: 380px;
+box-shadow: 0 12px 24px rgba(0,0,0,0.25);
+text-align: center;
+}
+.login-panel h2 {
+margin-bottom: 25px;
+color: #333;
+font-weight: 700;
+}
+.input-icon-wrapper {
+position: relative;
+margin-bottom: 20px;
+}
+.input-icon-wrapper i {
+position: absolute;
+top: 50%;
+left: 10px;
+transform: translateY(-50%);
+color: #555;
+}
+.input-icon-wrapper .p-inputtext,
+.input-icon-wrapper .p-password {
+padding-left: 35px !important;
+width: 100% !important;
+}
+.p-button {
+width: 100%;
+font-weight: 600;
+transition: all 0.3s ease;
+}
+.p-button:hover {
+filter: brightness(1.1);
+}
+.msgs-panel {
+margin-bottom: 15px;
+} </style>
+</h:head>
+
+<h:body>
+<h:form id="loginForm"> <div class="login-panel"> <h2>Telecom System Login</h2>
+
+        <p:messages id="msgs" showDetail="true" showSummary="false" styleClass="msgs-panel" />
+
+        <div class="input-icon-wrapper">
+            <i class="pi pi-user"></i>
+            <p:inputText value="#{loginBean.username}" label="Username" required="true"
+                         placeholder="Enter your username" />
+        </div>
+
+        <div class="input-icon-wrapper">
+            <i class="pi pi-lock"></i>
+            <p:password value="#{loginBean.password}" label="Password" required="true"
+                        placeholder="Enter your password" feedback="false" />
+        </div>
+
+        <p:commandButton value="Login"
+                         icon="pi pi-sign-in"
+                         action="#{loginBean.login}"
+                         update="msgs"
+                         styleClass="p-button-rounded p-button-lg"/>
+    </div>
+</h:form>
+```
+
+</h:body>
+
+</html>

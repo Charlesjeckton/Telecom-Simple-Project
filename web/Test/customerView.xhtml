@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+    <title>Customer Dashboard</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/primeflex@3.3.1/primeflex.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/primeicons@5.0.0/primeicons.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/primefaces@13.0.0/resources/themes/lara-light-indigo/theme.css" />
+    <style>
+        body { font-family: Arial, sans-serif; background: #f9f9f9; margin: 0; padding: 20px; }
+        .dashboard-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+        .dashboard-header h1 { margin: 0; font-size: 24px; color: #333; }
+        .card { background: #ffffff; padding: 20px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 20px; }
+        .card h2 { margin-top: 0; margin-bottom: 15px; color: #444; }
+        .p-button { margin-top: 10px; }
+        .dataTableWrapper { overflow-x: auto; margin-top: 10px; }
+    </style>
+</h:head>
+
+<h:body>
+<f:metadata>
+    <f:viewAction action="#{loginBean.redirectIfNotCustomer}"/>
+</f:metadata>
+
+<!-- Header -->
+<div class="dashboard-header">
+    <h1>Welcome, #{loginBean.user.username}</h1>
+    <p:commandButton value="Logout" icon="pi pi-sign-out" action="#{loginBean.logout}" ajax="false" styleClass="p-button-danger"/>
+</div>
+
+<p:tabView id="tabs">
+
+    <!-- Register Customer Tab -->
+    <p:tab title="Register Customer">
+        <h:form id="registerForm">
+            <p:growl id="growl" showDetail="true" sticky="false"/>
+            <div class="card">
+                <h2>Register New Customer</h2>
+                <p:messages id="msgs" showDetail="true" showSummary="false"/>
+
+                <div class="p-fluid p-formgrid p-grid">
+                    <div class="p-field p-col-12">
+                        <label for="name">Full Name</label>
+                        <p:inputText id="name" value="#{customerBean.customer.name}" placeholder="Enter full name" required="true"/>
+                    </div>
+                    <div class="p-field p-col-12">
+                        <label for="phone">Phone Number</label>
+                        <p:inputText id="phone" value="#{customerBean.customer.phoneNumber}" placeholder="Enter phone number" required="true"/>
+                    </div>
+                    <div class="p-field p-col-12">
+                        <label for="email">Email Address</label>
+                        <p:inputText id="email" value="#{customerBean.customer.email}" placeholder="Enter email address" required="true"/>
+                    </div>
+                    <div class="p-field p-col-12">
+                        <label for="username">Username</label>
+                        <p:inputText id="username" value="#{customerBean.username}" placeholder="Choose a username" required="true"/>
+                    </div>
+                    <div class="p-field p-col-12">
+                        <label for="password">Password</label>
+                        <p:password id="password" value="#{customerBean.password}" placeholder="Enter password" required="true"/>
+                    </div>
+                </div>
+
+                <p:commandButton value="Register" icon="pi pi-user-plus"
+                                 action="#{customerBean.register}" 
+                                 update="@form, growl"
+                                 styleClass="p-button-success"/>
+            </div>
+        </h:form>
+    </p:tab>
+
+    <!-- Subscriptions Tab -->
+    <p:tab title="Subscriptions">
+        <h:form id="subsForm">
+            <div class="card">
+                <h2>My Subscriptions</h2>
+                <p:commandButton value="Load Subscriptions" icon="pi pi-refresh"
+                                 action="#{customerBean.loadSubscriptions(loginBean.user.id)}"
+                                 update="subscriptionTable, growl"
+                                 styleClass="p-button-info"/>
+                <div class="dataTableWrapper">
+                    <p:dataTable id="subscriptionTable" value="#{customerBean.activeSubscriptions}" var="sub"
+                                 paginator="true" rows="10" scrollable="true" emptyMessage="No active subscriptions">
+                        <p:column headerText="ID">#{sub.id}</p:column>
+                        <p:column headerText="Service">#{sub.serviceName}</p:column>
+                        <p:column headerText="Start Date">#{sub.startDate}</p:column>
+                        <p:column headerText="Status">#{sub.status}</p:column>
+                        <p:column headerText="Action">
+                            <p:commandButton value="Deactivate" icon="pi pi-times"
+                                             action="#{customerBean.deactivateSubscription(sub.id)}"
+                                             update="subscriptionTable, growl"
+                                             styleClass="p-button-warning"/>
+                        </p:column>
+                    </p:dataTable>
+                </div>
+            </div>
+        </h:form>
+    </p:tab>
+
+    <!-- Billing Tab -->
+    <p:tab title="Billing">
+        <h:form id="billingForm">
+            <div class="card">
+                <p:commandButton value="View Billing History" icon="pi pi-file"
+                                 action="#{customerBean.loadBills(loginBean.user.id)}"
+                                 update="billingTable, growl"
+                                 styleClass="p-button-info"/>
+                <div class="dataTableWrapper">
+                    <p:dataTable id="billingTable" value="#{customerBean.customerBills}" var="bill"
+                                 paginator="true" rows="10" scrollable="true" emptyMessage="No bills found">
+                        <p:column headerText="Bill ID">#{bill.id}</p:column>
+                        <p:column headerText="Amount">#{bill.amount}</p:column>
+                        <p:column headerText="Date">#{bill.billingDate}</p:column>
+                        <p:column headerText="Paid">#{bill.paid ? 'Yes' : 'No'}</p:column>
+                    </p:dataTable>
+                </div>
+            </div>
+        </h:form>
+    </p:tab>
+
+</p:tabView>
+
+</h:body>
+</html>

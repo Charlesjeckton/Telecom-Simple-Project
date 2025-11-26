@@ -1,0 +1,36 @@
+<!DOCTYPE html> <html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:p="http://primefaces.org/ui" xmlns:f="http://xmlns.jcp.org/jsf/core"> <h:head> <title>Admin Dashboard</title> <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/primeflex@3.3.1/primeflex.min.css" /> <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/primeicons@5.0.0/primeicons.css" /> <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/primefaces@13.0.0/resources/themes/lara-light-indigo/theme.css" /> <style> body { font-family: Arial, sans-serif; background: #f9f9f9; margin: 0; padding: 20px; } .dashboard-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; } .dashboard-header h1 { margin: 0; font-size: 24px; color: #333; } .card { background: #ffffff; padding: 20px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 20px; } .card h2 { margin-top: 0; margin-bottom: 15px; color: #444; } .p-button { margin-top: 10px; } .dataTableWrapper { overflow-x: auto; } </style> </h:head> <h:body> <f:metadata> <f:viewAction action="#{loginBean.redirectIfNotAdmin}"/> </f:metadata> <div class="dashboard-header"> <h1>Welcome, #{loginBean.user.username}</h1> <p:commandButton value="Logout" icon="pi pi-sign-out" action="#{loginBean.logout}" ajax="false" styleClass="p-button-danger"/> </div> <p:tabView> <!-- Add Service Tab --> <p:tab title="Add Service"> <h:form id="serviceForm"> <div class="card"> <h2>Add New Service</h2> <p:messages id="msgs" showDetail="true" showSummary="false"/> <div class="p-fluid p-formgrid p-grid"> <div class="p-field p-col-12"> <p:inputText value="#{serviceBean.service.name}" label="Service Name" required="true"/> </div> <div class="p-field p-col-12"> <p:inputTextarea value="#{serviceBean.service.description}" label="Description"/> </div> <div class="p-field p-col-12"> <p:inputText value="#{serviceBean.service.monthlyFee}" label="Monthly Fee" required="true"/> </div> </div> <p:commandButton value="Add Service" icon="pi pi-plus" action="#{serviceBean.addService}" update="@form" styleClass="p-button-success"/> </div> </h:form> </p:tab>
+<!-- View All Subscriptions Tab -->
+<p:tab title="Subscriptions">
+    <h:form id="subscriptionsForm">
+        <div class="card">
+            <h2>All Subscriptions</h2>
+            <div class="dataTableWrapper">
+                <p:dataTable id="subscriptionsTable" value="#{adminBean.allSubscriptions}" var="sub" paginator="true" rows="10" scrollable="true">
+                    <p:column headerText="ID">#{sub.id}</p:column>
+                    <p:column headerText="Customer">#{sub.customerName}</p:column>
+                    <p:column headerText="Service">#{sub.serviceName}</p:column>
+                    <p:column headerText="Start Date">#{sub.startDate}</p:column>
+                    <p:column headerText="Status">#{sub.status}</p:column>
+                </p:dataTable>
+            </div>
+        </div>
+    </h:form>
+</p:tab>
+
+<!-- Unpaid Bills Tab -->
+<p:tab title="Unpaid Bills">
+    <h:form id="billsForm">
+        <div class="card">
+            <h2>Unpaid Bills</h2>
+            <div class="dataTableWrapper">
+                <p:dataTable id="unpaidBillsTable" value="#{adminBean.unpaidBills}" var="bill" paginator="true" rows="10" scrollable="true">
+                    <p:column headerText="Bill ID">#{bill.id}</p:column>
+                    <p:column headerText="Customer">#{bill.customerName}</p:column>
+                    <p:column headerText="Amount">#{bill.amount}</p:column>
+                    <p:column headerText="Date">#{bill.billingDate}</p:column>
+                </p:dataTable>
+            </div>
+        </div>
+    </h:form>
+</p:tab>
+</p:tabView> </h:body> </html>

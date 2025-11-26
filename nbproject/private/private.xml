@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/E:/Documents/NetBeansProjects/TelecomProjectSimple/web/customer/subscriptions.jsp</file>
+            <file>file:/E:/Documents/NetBeansProjects/TelecomProjectSimple/web/admin/includes/adminTheme.jspf</file>
+            <file>file:/E:/Documents/NetBeansProjects/TelecomProjectSimple/web/admin/editService.jsp</file>
+            <file>file:/E:/Documents/NetBeansProjects/TelecomProjectSimple/src/java/servlet/customer/RegisterCustomerServlet.java</file>
+            <file>file:/E:/Documents/NetBeansProjects/TelecomProjectSimple/src/java/servlet/GenerateBillServlet.java</file>
+            <file>file:/E:/Documents/NetBeansProjects/TelecomProjectSimple/web/customer/includes/customerNavbar.jspf</file>
+            <file>file:/E:/Documents/NetBeansProjects/TelecomProjectSimple/src/java/dao/ServiceDAO.java</file>
+            <file>file:/E:/Documents/NetBeansProjects/TelecomProjectSimple/src/java/dao/SubscriptionDAO.java</file>
+            <file>file:/E:/Documents/NetBeansProjects/TelecomProjectSimple/src/java/model/Billing.java</file>
+            <file>file:/E:/Documents/NetBeansProjects/TelecomProjectSimple/src/java/servlet/TestCustomerServlet.java</file>
+            <file>file:/E:/Documents/NetBeansProjects/TelecomProjectSimple/src/java/servlet/CustomerSubscriptionsServlet.java</file>
+            <file>file:/E:/Documents/NetBeansProjects/TelecomProjectSimple/src/java/filter/RoleFilter.java</file>
+            <file>file:/E:/Documents/NetBeansProjects/TelecomProjectSimple/src/java/servlet/LoginServlet.java</file>
+            <file>file:/E:/Documents/NetBeansProjects/TelecomProjectSimple/web/customer/includes/customerTheme.jspf</file>
+            <file>file:/E:/Documents/NetBeansProjects/TelecomProjectSimple/web/admin/includes/adminSidebar.jspf</file>
+            <file>file:/E:/Documents/NetBeansProjects/TelecomProjectSimple/web/admin/addSubscription.jsp</file>
+            <file>file:/E:/Documents/NetBeansProjects/TelecomProjectSimple/src/java/dao/BillingDAO.java</file>
+            <file>file:/E:/Documents/NetBeansProjects/TelecomProjectSimple/src/java/servlet/AdminSubscriptionServlet.java</file>
+            <file>file:/E:/Documents/NetBeansProjects/TelecomProjectSimple/src/java/servlet/LogoutServlet.java</file>
+            <file>file:/E:/Documents/NetBeansProjects/TelecomProjectSimple/src/java/bean/AdminBean.java</file>
+            <file>file:/E:/Documents/NetBeansProjects/TelecomProjectSimple/web/admin/subscriptions.jsp</file>
+            <file>file:/E:/Documents/NetBeansProjects/TelecomProjectSimple/src/java/servlet/admin/MarkBillUnpaidServlet.java</file>
+            <file>file:/E:/Documents/NetBeansProjects/TelecomProjectSimple/src/java/servlet/DeactivateSubscriptionServlet.java</file>
+            <file>file:/E:/Documents/NetBeansProjects/TelecomProjectSimple/web/login.jsp</file>
+            <file>file:/E:/Documents/NetBeansProjects/TelecomProjectSimple/web/customer/billingHistory.jsp</file>
+            <file>file:/E:/Documents/NetBeansProjects/TelecomProjectSimple/src/java/servlet/AddSubscriptionServlet.java</file>
+            <file>file:/E:/Documents/NetBeansProjects/TelecomProjectSimple/web/accessDenied.jsp</file>
+            <file>file:/E:/Documents/NetBeansProjects/TelecomProjectSimple/src/java/servlet/admin/AdminSubscriptionServlet.java</file>
+            <file>file:/E:/Documents/NetBeansProjects/TelecomProjectSimple/web/admin/editSubscription.jsp</file>
+            <file>file:/E:/Documents/NetBeansProjects/TelecomProjectSimple/web/customer/registerCustomer.jsp</file>
+            <file>file:/E:/Documents/NetBeansProjects/TelecomProjectSimple/web/customer/activateSubscriptionForm.jsp</file>
+            <file>file:/E:/Documents/NetBeansProjects/TelecomProjectSimple/src/java/model/Customer.java</file>
+            <file>file:/E:/Documents/NetBeansProjects/TelecomProjectSimple/web/admin/services.jsp</file>
+            <file>file:/E:/Documents/NetBeansProjects/TelecomProjectSimple/web/admin/dashboard.jsp</file>
+            <file>file:/E:/Documents/NetBeansProjects/TelecomProjectSimple/web/admin/unpaidBills.jsp</file>
+            <file>file:/E:/Documents/NetBeansProjects/TelecomProjectSimple/web/admin/activateSubscription.jsp</file>
+            <file>file:/E:/Documents/NetBeansProjects/TelecomProjectSimple/src/java/servlet/admin/MarkBillPaidServlet.java</file>
+            <file>file:/E:/Documents/NetBeansProjects/TelecomProjectSimple/src/java/bean/ServiceBean.java</file>
+            <file>file:/E:/Documents/NetBeansProjects/TelecomProjectSimple/src/java/servlet/RegisterCustomerServlet.java</file>
+            <file>file:/E:/Documents/NetBeansProjects/TelecomProjectSimple/web/customer/home.jsp</file>
+            <file>file:/E:/Documents/NetBeansProjects/TelecomProjectSimple/src/java/model/Service.java</file>
+            <file>file:/E:/Documents/NetBeansProjects/TelecomProjectSimple/web/admin/paidBills.jsp</file>
+            <file>file:/E:/Documents/NetBeansProjects/TelecomProjectSimple/web/admin/addService.jsp</file>
+            <file>file:/E:/Documents/NetBeansProjects/TelecomProjectSimple/web/customer/addSubscription.jsp</file>
+            <file>file:/E:/Documents/NetBeansProjects/TelecomProjectSimple/src/java/servlet/ActivateSubscriptionServlet.java</file>
+            <file>file:/E:/Documents/NetBeansProjects/TelecomProjectSimple/src/java/dao/CustomerDAO.java</file>
+        </group>
+    </open-files>
+</project-private>
